@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   NOTE ON COLOURS
+   No hex codes live in this file. Tailwind colours (bg-brand-*)
+   come from src/config/brand.ts via tailwind.config.ts, and raw
+   CSS below uses the variables layout.tsx sets on <html>:
+     --brand-primary, --brand-primary-light, --brand-primary-dark,
+     --brand-primary-rgb, --brand-black, --brand-dark, ...
+
+   THE LOOK: a jewellery counter for sneakers. White and pearl
+   surfaces, a chrome vignette behind the hero shoe, aubergine ink,
+   garnet used sparingly. Shape rules: buttons are full pills, inputs
+   and photos have a small radius, product cards have no box at all.
+   ============================================================ */
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* Jost has a small x-height. Scaling up slightly (and in a way that still
+       respects the visitor's browser setting) keeps it comfortable to read. */
+    font-size: 106.25%;
+  }
+
+  body {
+    @apply bg-brand-white font-body text-brand-dark antialiased;
+    overflow-x: hidden;
+    /* Marcellus only has one weight. Faking bold smears the letterforms. */
+    font-synthesis: none;
+  }
+
+  h1,
+  h2 {
+    @apply font-display font-normal leading-[1.1] text-brand-black;
+    letter-spacing: -0.01em;
+  }
+  h3,
+  h4 {
+    @apply font-body font-medium leading-snug text-brand-black;
+  }
+
+  ::selection {
+    background: var(--brand-primary);
+    color: var(--brand-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 1rem; /* always 16px or more, which stops iOS Safari zooming on focus */
+  }
+
+  [id] {
+    scroll-margin-top: 6rem; /* anchors land clear of the sticky header */
+  }
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .section-padding {
+    @apply py-14 sm:py-20 lg:py-24;
+  }
+
+  .display-heading {
+    @apply font-display font-normal leading-[1.1] text-brand-black;
+  }
+  /* Every page title, so they all share one size. */
+  .page-title {
+    @apply font-display text-[2.25rem] leading-[1.1] text-brand-black sm:text-5xl;
+  }
+  .section-title {
+    @apply font-display text-[1.875rem] leading-[1.15] text-brand-black sm:text-[2.5rem];
+  }
+
+  /* Prices are always Jost: clean, lining numerals that line up. */
+  .price {
+    @apply font-body font-medium text-brand-black;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  /* Buttons: the only full pills on the site. */
+  .btn-primary,
+  .btn-outline,
+  .btn-whatsapp {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-7 py-3 text-base font-medium transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary {
+    @apply bg-brand-black text-brand-white hover:bg-brand-primary active:bg-brand-primary-dark;
+  }
+  .btn-outline {
+    @apply border border-brand-black bg-transparent text-brand-black hover:bg-brand-black hover:text-brand-white;
+  }
+  /* Same shape as the outline button: only the icon is WhatsApp green. */
+  .btn-whatsapp {
+    @apply border border-brand-black bg-brand-white text-brand-black hover:bg-brand-black hover:text-brand-white;
+  }
+  .btn-whatsapp svg {
+    color: var(--brand-whatsapp);
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-brand-dark transition-colors duration-150 hover:text-brand-black;
+  }
+  /* A quiet underlined text link, e.g. "See all". */
+  .link-quiet {
+    @apply inline-flex min-h-[44px] items-center text-base text-brand-black underline decoration-brand-mid underline-offset-[6px] transition-colors hover:text-brand-primary hover:decoration-brand-primary;
+  }
+
+  /* Forms */
+  .input {
+    @apply min-h-[48px] w-full rounded-md border border-brand-mid bg-brand-white px-4 py-3 text-base text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none focus:ring-1 focus:ring-brand-black;
+  }
+  .input[aria-invalid="true"] {
+    @apply border-brand-primary;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-brand-black;
+  }
+
+  /* Used for panels that need a boundary (summaries, forms). Product cards don't. */
+  .card {
+    @apply rounded-lg border border-brand-dark2 bg-brand-white;
+  }
+
+  /* Photo tile: the shot fills the tile edge to edge, so no inner box shows.
+     Source photos have backdrops anywhere from white to pale grey. Brightening
+     takes them all to white and multiply swaps that for the tile colour, so
+     every tile in a grid ends up the same even shade. */
+  .photo-tile {
+    @apply relative block overflow-hidden rounded bg-brand-photo;
+  }
+  .photo-tile img {
+    @apply object-cover;
+    filter: brightness(1.07);
+    mix-blend-mode: multiply;
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  @media (hover: hover) {
+    .group:hover .photo-tile img {
+      transform: scale(1.03);
+    }
+  }
+
+  /* Tags: small and quiet, with at most one on any photo. */
+  .badge-new,
+  .badge-lowstock,
+  .badge-soldout,
+  .badge-clearance {
+    @apply inline-flex items-center rounded-sm bg-brand-white px-2 py-0.5 text-[0.8125rem] font-medium text-brand-black ring-1 ring-brand-dark2;
+  }
+  .badge-soldout {
+    @apply bg-brand-black text-brand-white ring-brand-black;
+  }
+  .badge-sale {
+    @apply inline-flex items-center rounded-sm bg-brand-primary px-2 py-0.5 text-[0.8125rem] font-medium text-white;
+  }
+
+  /* Size selector chips */
+  .size-chip {
+    @apply inline-flex min-h-[48px] min-w-[44px] items-center justify-center rounded-md border border-brand-mid bg-brand-white px-2 text-base font-medium text-brand-black transition-colors duration-100 hover:border-brand-black;
+    font-variant-numeric: lining-nums;
+  }
+  .size-chip[aria-checked="true"] {
+    @apply border-brand-black bg-brand-black text-brand-white;
+  }
+  .size-chip:disabled {
+    @apply cursor-not-allowed border-brand-dark2 text-brand-muted line-through opacity-60 hover:border-brand-dark2;
+  }
+
+  /* Blog article body */
+  .prose-article {
+    @apply text-lg leading-relaxed text-brand-dark;
+  }
+  .prose-article > * + * {
+    @apply mt-5;
+  }
+  .prose-article h2 {
+    @apply mt-12 font-body text-2xl font-medium text-brand-black;
+  }
+  .prose-article h3 {
+    @apply mt-8 font-body text-xl font-medium text-brand-black;
+  }
+  .prose-article strong {
+    @apply font-medium text-brand-black;
+  }
+  .prose-article a {
+    @apply text-brand-primary underline underline-offset-4 hover:text-brand-primary-dark;
+  }
+  .prose-article ul,
+  .prose-article ol {
+    @apply space-y-2 pl-5;
+  }
+  .prose-article ul {
+    @apply list-disc;
+  }
+  .prose-article ol {
+    @apply list-decimal;
+  }
+  .prose-article li::marker {
+    color: var(--brand-primary);
+  }
+  .prose-article blockquote {
+    @apply border-l-2 border-brand-black pl-5 font-display text-xl text-brand-black;
+  }
+}
+
+/* ---------- Hero ---------- */
+/* The chrome vignette from the logo: bright centre, silver at the edges. */
+.hero-vignette {
+  background: radial-gradient(
+    ellipse 85% 90% at 50% 45%,
+    var(--brand-white) 0%,
+    var(--brand-light) 50%,
+    var(--brand-silver) 100%
+  );
+}
+.hero-title {
+  font-size: clamp(3.25rem, 11vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+/* Product photos have a pale grey backdrop. Brightening takes it to white, multiply
+   then melts it into the silver, and the soft mask fades whatever is left before the
+   photo's square edge, so the shoe sits on the page itself. */
+.hero-shoe {
+  filter: brightness(1.07);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(closest-side, black 74%, transparent 100%);
+  mask-image: radial-gradient(closest-side, black 74%, transparent 100%);
+}
+
+/* ---------- Motion ---------- */
+/* One moment only: the hero shoe settles into place on page load. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-settle {
+  animation: settle 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Little shake when someone taps "Add to cart" without choosing a size. */
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+.nudge {
+  animation: nudge 0.3s ease-in-out 2;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-settle,
+  .nudge {
+    animation: none;
+  }
+  .photo-tile img {
+    transition: none;
+  }
+}

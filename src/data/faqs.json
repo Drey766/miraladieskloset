@@ -1,0 +1,8 @@
+[
+  { "id": "1", "q": "Are your sneakers genuine?", "a": "Yes — unique, trendy and quality is the whole promise. We don't stock cheap knockoffs, and every pair is checked before it goes out." },
+  { "id": "2", "q": "What sizes do you carry?", "a": "We stock sizes 36 to 46 across most styles. Availability varies by pair, so call or DM us to confirm your size before ordering." },
+  { "id": "3", "q": "Can I shop in person?", "a": "Yes! Find us at Shop E8 on the 1st floor of Ebrahims Mall, Moi Avenue. Or if you can't make it in, we deliver countrywide for a fee." },
+  { "id": "4", "q": "How long does delivery take?", "a": "Nairobi deliveries are usually same day to next day. Upcountry takes a little longer depending on where you are — we'll keep you posted." },
+  { "id": "5", "q": "How do I pay?", "a": "M-Pesa through the website (Till 5562041), or call us to arrange cash on pickup or delivery if you'd rather." },
+  { "id": "6", "q": "What if my size is out of stock?", "a": "DM or call us — stock moves fast but we restock often, and we can tell you exactly when your size lands again." }
+]
