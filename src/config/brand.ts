@@ -13,22 +13,28 @@
 //   1. Font loading — `next/font/google` needs literal font names at build
 //      time, so src/app/layout.tsx calls Marcellus() / Jost() directly.
 //      If you change `fonts` below, change those two calls to match.
-//   2. Logo / favicon files — swap public/logo.jpg, src/app/icon.jpg and
-//      src/app/apple-icon.jpg with the new shop's logo (same file names).
+//   2. Logo / favicon files — swap public/logo.jpg (full logo), public/logo-mark.jpg
+//      (emblem only), src/app/icon.jpg (emblem) and src/app/apple-icon.jpg (full
+//      logo) with the new shop's logo (same file names).
 //
 // Everything else — Tailwind colours, CSS variables, metadata, WhatsApp
 // links, order ID prefix, micro-copy — flows from this object.
 
 export const brand = {
   // ── IDENTITY ──
-  name: "Mira Ladies Kloset",
+  name: "Mira Ladies Sneakers",
   shortName: "Mira", // Used in tight spaces (mobile nav, favicon title)
   tagline: "Unique. Trendy. Quality.",
   taglineLong:
     "Unique, trendy and quality ladies sneakers — shop in-store at Ebrahims Mall, Moi Avenue, or get your pair delivered countrywide.",
   instagramHandle: "@mira_ladies_sneakers",
   instagramUrl: "https://www.instagram.com/mira_ladies_sneakers/",
-  logo: "/logo.jpg", // small chrome/silver emblem on a soft grey vignette — see public/
+  // Full logo (emblem + "Mira Kloset" + "Mira Ladies Sneakers" on cream). Used where it's shown
+  // large or shared: link previews and search results.
+  logo: "/logo.jpg",
+  // Just the swoosh emblem, cropped from the full logo, for small spots (header, footer)
+  // where the logo's text would be too small to read. src/app/icon.jpg is the same crop.
+  logoMark: "/logo-mark.jpg",
   // Product shown in the home page hero (its `id` in src/data/products.json).
   heroProductId: "15",
   // Prefix for localStorage keys (cart, wishlist) so two shops on one domain never clash.

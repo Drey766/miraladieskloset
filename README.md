@@ -1,4 +1,4 @@
-# Mira Ladies Kloset — mobile-first sneaker storefront
+# Mira Ladies Sneakers — mobile-first sneaker storefront
 
 Next.js 14 (App Router) · Tailwind CSS · TypeScript · **no database** — products, blogs, FAQs and
 testimonials are plain JSON files. Orders go out through **M-Pesa (STK Push)** and **WhatsApp**.
@@ -23,7 +23,7 @@ Three things live outside that file because the tooling forces it:
 | What | Where | What to do when rebranding |
 |---|---|---|
 | Font loading | `src/app/layout.tsx` | `next/font/google` needs literal font names at build time. Change the two calls (`Marcellus`, `Jost`) to match `brand.fonts`. |
-| Logo + favicon | `public/logo.jpg`, `src/app/icon.jpg`, `src/app/apple-icon.jpg` | Replace the files, keep the names. |
+| Logo + favicon | `public/logo.jpg` (full logo), `public/logo-mark.jpg` (emblem only), `src/app/icon.jpg` (emblem), `src/app/apple-icon.jpg` (full logo) | Replace the files, keep the names. The emblem files are a square crop of just the mark, for sizes where the logo's text can't be read. |
 | Catalogue & content | `src/data/*.json` | Replace with the new shop's products / posts / FAQs / testimonials. |
 
 The blog posts, FAQs and testimonials are content, not config — they mention the shop in passing,
@@ -33,10 +33,10 @@ so re-read them when you rebrand.
 
 ## The design, at a glance
 
-**The idea: a jewellery counter for sneakers.** The logo is brushed chrome and the shop's voice is "shine in style", so each shoe is shown like a piece in a display case. The look is carried by type, space and one signature detail rather than by decoration:
+**The idea: a jewellery counter for sneakers.** The shop's voice is "shine in style", so each shoe is shown like a piece in a display case. The look is carried by type, space and one signature detail rather than by decoration:
 
 - **Hallmark stamp (`src/components/ui/Hallmark.tsx`).** A jeweller-style stamp built from the real shop unit (Shop E8), with the location around the ring (`brand.hallmark`). It's used in only two places, the hero and the visit section, so it stays special.
-- **Colour.** White and pearl surfaces, a silver vignette taken from the logo behind the hero shoe, deep aubergine in place of black (buttons, footer, text), and garnet as a sparing accent: sale tags, the saved heart, count badges, errors.
+- **Colour.** White and pearl surfaces, a soft silver vignette behind the hero shoe, deep aubergine in place of black (buttons, footer, text), and garnet as a sparing accent: sale tags, the saved heart, count badges, errors.
 - **Type: Marcellus + Jost.** Marcellus is for page and section headings only. It has one weight, so never bold it (`font-synthesis: none` stops browsers faking it). Its numerals read badly (its 1 looks like an I), so **anything with numbers uses Jost**: every price, product names, article subheadings. For display text that might contain a number, wrap it in `<DisplayText>`.
 - **Symmetry.** The header's outer columns are equal so the wordmark is exactly centred. The hero is centred, all containers share one width, grids are always even, and testimonials always show three.
 - **Photos.** `.photo-tile` makes photos fill their tile edge to edge, then brightens and multiplies them so white and grey source backdrops land on the same shade. New photos should be shot on a plain light background to benefit from this.
@@ -47,11 +47,9 @@ so re-read them when you rebrand.
 
 ## A naming note
 
-The site's name is **Mira Ladies Kloset** (`brand.name` in `src/config/brand.ts`; everything else
-follows automatically). The uploaded logo reads "Mira Kloset", and the Instagram account is still
-`@mira_ladies_sneakers`, so the handle and link in `brand.ts` keep that spelling until the account
-is renamed. `brand.storagePrefix` also keeps the old name on purpose: changing it would empty the
-carts and saved pairs of anyone who has already visited.
+The site's name is **Mira Ladies Sneakers** (`brand.name` in `src/config/brand.ts`; everything else
+follows automatically), matching the Instagram account `@mira_ladies_sneakers`. The logo reads
+"Mira Kloset" with "Mira Ladies Sneakers" underneath, so the two names appear together on purpose.
 
 The Instagram bio lists **0713 268 179** as the shop's line; a separate post used **0700 107 179**
 for DM orders instead. This build uses the bio number everywhere (`brand.phone` / `brand.phoneIntl`
@@ -204,7 +202,8 @@ scripts/transform-products.py
 - Product photos are hot-linked from `contents.mediadecathlon.com` (whitelisted in `next.config.js`).
   Make sure you're allowed to use those images and products commercially — or upload Mira's own photos
   and update the JSON.
-- The uploaded logo is a small (150×150) Instagram profile-photo export with its own grey background, not a
-  transparent/high-res logo file. It works fine at the small sizes used here (nav, footer, favicon), but a
-  larger, background-free version would look crisper if one exists.
+- The logo is a small (150×150) image on its own cream background, not a transparent/high-res logo
+  file. The header, footer and favicon use a crop of just the emblem, because the logo's text can't be
+  read at those sizes. A larger original (ideally with a transparent background) would look crisper,
+  especially in link previews and as the phone home-screen icon.
 - `contact` form and footer "drop list" open WhatsApp with the message ready to send (there's no email backend).

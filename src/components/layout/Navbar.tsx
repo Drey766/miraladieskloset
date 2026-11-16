@@ -31,11 +31,11 @@ function Wordmark() {
     <span className="flex items-center gap-2.5">
       {/* The logo hides below 360px so the name and the four 44px buttons always fit. */}
       <Image
-        src={brand.logo}
+        src={brand.logoMark}
         alt=""
         width={36}
         height={36}
-        className="hidden h-9 w-9 shrink-0 rounded-full object-cover min-[360px]:block"
+        className="hidden h-9 w-9 shrink-0 rounded-full object-cover ring-1 ring-brand-dark2 min-[360px]:block"
       />
       <span className="whitespace-nowrap font-display text-[1.375rem] leading-none text-brand-black sm:text-2xl">
         <span className="sm:hidden">{brand.shortName}</span>
@@ -85,7 +85,7 @@ export default function Navbar() {
 
   return (
     <>
-      <p className="bg-brand-black px-4 py-2 text-center text-sm text-white/90">{brand.copy.announcement}</p>
+      <p className="bg-brand-black px-4 py-2 text-center text-[0.8125rem] text-white/90 sm:text-sm">{brand.copy.announcement}</p>
 
       <header className="sticky top-0 z-50 border-b border-brand-dark2 bg-brand-white/95 pt-[env(safe-area-inset-top)] backdrop-blur">
         {/* Equal outer columns keep the wordmark dead centre, whatever sits either side of it. */}

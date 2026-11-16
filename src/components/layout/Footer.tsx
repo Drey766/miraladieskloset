@@ -75,7 +75,7 @@ export default function Footer() {
       <div className="container-site grid grid-cols-2 gap-x-6 gap-y-10 py-12 lg:grid-cols-4 lg:py-16">
         <div className="col-span-2 lg:col-span-1">
           <div className="flex items-center gap-3">
-            <Image src={brand.logo} alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover" />
+            <Image src={brand.logoMark} alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover" />
             <p className="font-display text-xl leading-tight text-white">{brand.name}</p>
           </div>
           <p className="mt-4 max-w-xs leading-relaxed text-white/70">{brand.copy.footerTagline}</p>
