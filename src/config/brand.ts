@@ -26,7 +26,7 @@ export const brand = {
   shortName: "Mira", // Used in tight spaces (mobile nav, favicon title)
   tagline: "Unique. Trendy. Quality.",
   taglineLong:
-    "Unique, trendy and quality ladies sneakers — shop in-store at Ebrahims Mall, Moi Avenue, or get your pair delivered countrywide.",
+    "Unique, trendy and quality ladies sneakers — shop in-store at Digital Mall, Moi Avenue, or get your pair delivered countrywide.",
   instagramHandle: "@mira_ladies_sneakers",
   instagramUrl: "https://www.instagram.com/mira_ladies_sneakers/",
   // Full logo (emblem + "Mira Kloset" + "Mira Ladies Sneakers" on cream). Used where it's shown
@@ -44,7 +44,7 @@ export const brand = {
     "ladies sneakers Kenya",
     "women's sneakers Nairobi",
     "trendy sneakers for women",
-    "Ebrahims Mall Moi Avenue sneakers",
+    "Digital Mall Moi Avenue sneakers",
     "buy sneakers online Kenya",
     "M-Pesa sneakers",
   ],
@@ -59,15 +59,15 @@ export const brand = {
   email: "hello@miraladiessneakers.co.ke", // Placeholder — update as needed
 
   // ── LOCATION ──
-  pickupLocation: "Ebrahims Mall, Moi Avenue",
+  pickupLocation: "Digital Mall, Moi Avenue",
   deliveryArea: "Delivery across Kenya (fee applies)",
-  address: "1st Floor, Shop E8, Ebrahims Mall, Moi Avenue, Nairobi",
+  address: "1st Floor, Shop M9, Digital Mall, Moi Avenue, Nairobi",
   pickupInstructions:
-    "Once your order is confirmed, come through to Shop E8 on the 1st floor of Ebrahims Mall, Moi Avenue. Have your order number and phone ready.",
+    "Once your order is confirmed, come through to Shop M9 on the 1st floor of Digital Mall, Moi Avenue. Have your order number and phone ready.",
   // The shop's hallmark: a jeweller-style stamp built from the real shop unit.
   hallmark: {
-    unit: "E8",
-    ring: "1ST FLOOR • EBRAHIMS MALL • MOI AVENUE • ",
+    unit: "M9",
+    ring: "1ST FLOOR • DIGITAL MALL • MOI AVENUE • ",
   },
 
   // ── SIZING ──
@@ -95,12 +95,12 @@ export const brand = {
   // All personality copy lives here. Components never type these literally.
   copy: {
     // Slim strip above the header
-    announcement: "Free pickup at Ebrahims Mall. Delivery across Kenya.",
+    announcement: "Free pickup at Digital Mall. Delivery across Kenya.",
 
     // Hero
     heroHeadline: "Shine in style.",
     heroSubtext:
-      "Trendy, quality ladies sneakers, ready to try on at Ebrahims Mall or delivered anywhere in Kenya.",
+      "Trendy, quality ladies sneakers, ready to try on at Digital Mall or delivered anywhere in Kenya.",
 
     // Visit section (home page)
     visitHeading: "Come and try them on.",
@@ -132,7 +132,7 @@ export const brand = {
     // Stock / fulfilment badges
     lowStock: "Almost out, so move fast.",
     outOfStock: "Sold out for now. Message us, restocks happen often.",
-    fulfilmentBadge: "Pickup at Ebrahims Mall or delivery across Kenya",
+    fulfilmentBadge: "Pickup at Digital Mall or delivery across Kenya",
     badges: {
       new: "New",
       clearance: "End of line",
@@ -176,8 +176,8 @@ export const brand = {
       stepFulfilment: "How you'll get it",
       stepDetails: "Your details",
       stepPayment: "Payment",
-      pickupLabel: "Ebrahims Mall pickup",
-      pickupHint: "Free. Collect your pair at Shop E8.",
+      pickupLabel: "Digital Mall pickup",
+      pickupHint: "Free. Collect your pair at Shop M9.",
       deliveryLabel: "Delivery",
       deliveryHint: "Across Kenya. Fee depends on your county.",
       mpesaLabel: "Pay now with M-Pesa",
@@ -202,7 +202,7 @@ export const brand = {
     },
     {
       title: "Pickup or delivery",
-      text: "Grab your pair at Shop E8, or have it delivered anywhere in Kenya for a fee.",
+      text: "Grab your pair at Shop M9, or have it delivered anywhere in Kenya for a fee.",
     },
     {
       title: "We reply fast",

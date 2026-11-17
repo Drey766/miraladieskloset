@@ -35,7 +35,7 @@ so re-read them when you rebrand.
 
 **The idea: a jewellery counter for sneakers.** The shop's voice is "shine in style", so each shoe is shown like a piece in a display case. The look is carried by type, space and one signature detail rather than by decoration:
 
-- **Hallmark stamp (`src/components/ui/Hallmark.tsx`).** A jeweller-style stamp built from the real shop unit (Shop E8), with the location around the ring (`brand.hallmark`). It's used in only two places, the hero and the visit section, so it stays special.
+- **Hallmark stamp (`src/components/ui/Hallmark.tsx`).** A jeweller-style stamp built from the real shop unit (Shop M9), with the location around the ring (`brand.hallmark`). It's used in only two places, the hero and the visit section, so it stays special.
 - **Colour.** White and pearl surfaces, a soft silver vignette behind the hero shoe, deep aubergine in place of black (buttons, footer, text), and garnet as a sparing accent: sale tags, the saved heart, count badges, errors.
 - **Type: Marcellus + Jost.** Marcellus is for page and section headings only. It has one weight, so never bold it (`font-synthesis: none` stops browsers faking it). Its numerals read badly (its 1 looks like an I), so **anything with numbers uses Jost**: every price, product names, article subheadings. For display text that might contain a number, wrap it in `<DisplayText>`.
 - **Symmetry.** The header's outer columns are equal so the wordmark is exactly centred. The hero is centred, all containers share one width, grids are always even, and testimonials always show three.
